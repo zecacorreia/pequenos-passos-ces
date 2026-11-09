@@ -23,9 +23,32 @@ export const INSTITUTION = {
   address: undefined as string | undefined,
 };
 
+/** Arquivos em public/estudos. `canRead`: abre direto no navegador (PDF). */
+export const STUDIES = [
+  {
+    title: "Diretrizes para Avaliação e Intervenções Clínicas",
+    description:
+      "Esposito et al. (2023). Versão em PDF do artigo sobre seletividade alimentar em crianças com TEA.",
+    file: "/estudos/diretrizes-seletividade-alimentar-tea.pdf",
+    format: "PDF",
+    size: "510 KB",
+    canRead: true,
+  },
+  {
+    title: "Diretrizes 2023, versão em português",
+    description:
+      "Tradução do mesmo estudo em documento editável, para leitura e consulta pelas famílias e equipes.",
+    file: "/estudos/seletividade-alimentar-tea-diretrizes-2023-pt.docx",
+    format: "DOCX",
+    size: "236 KB",
+    canRead: false,
+  },
+] as const;
+
 export const NAV_LINKS = [
   { href: "#seletividade", label: "Seletividade" },
   { href: "#abordagens", label: "Abordagens" },
+  { href: "#estudos", label: "Estudos" },
   { href: "#contato", label: "Contato" },
 ];
 
