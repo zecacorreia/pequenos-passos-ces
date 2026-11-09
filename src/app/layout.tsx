@@ -9,10 +9,45 @@ const fredoka = Fredoka({ variable: "--font-fredoka", subsets: ["latin"] });
 // Letra manuscrita usada nos destaques dos posts ("Obrigado aos...")
 const script = Dancing_Script({ variable: "--font-script", subsets: ["latin"] });
 
+// Defina NEXT_PUBLIC_SITE_URL com o domínio final (ex.: https://seu-site.vercel.app)
+// para que as imagens de compartilhamento usem URLs absolutas corretas.
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+const TITLE = "Pequenos Passos | Apoio à seletividade alimentar no autismo";
+const DESCRIPTION =
+  "Projeto de extensão (PROBEX) de Nutrição do CES/UFCG que acolhe crianças com TEA e suas famílias diante da seletividade alimentar.";
+
 export const metadata: Metadata = {
-  title: "Pequenos Passos | Apoio à seletividade alimentar no autismo",
-  description:
-    "Projeto de extensão (PROBEX) de Nutrição do CES/UFCG que acolhe crianças com TEA e suas famílias diante da seletividade alimentar.",
+  metadataBase: new URL(SITE_URL),
+  title: { default: TITLE, template: "%s | Pequenos Passos" },
+  description: DESCRIPTION,
+  applicationName: "Pequenos Passos",
+  keywords: [
+    "seletividade alimentar",
+    "autismo",
+    "TEA",
+    "transtorno do espectro autista",
+    "nutrição",
+    "projeto de extensão",
+    "PROBEX",
+    "UFCG",
+    "CES",
+  ],
+  authors: [{ name: "Pequenos Passos · PROBEX-UFCG" }],
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    url: "/",
+    siteName: "Pequenos Passos",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
+  robots: { index: true, follow: true },
 };
 
 export const viewport: Viewport = {
